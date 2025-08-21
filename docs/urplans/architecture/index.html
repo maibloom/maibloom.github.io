@@ -13,7 +13,7 @@
       
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
@@ -68,6 +68,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#artitecture" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -339,6 +344,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -351,6 +371,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cliclirunnerjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      cli/CliRunner.java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configquerydslconfigjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      config/QuerydslConfig.java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controllertaskcontrollerjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      controller/TaskController.java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repotaskrepositorycustomjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      repo/TaskRepositoryCustom.java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicetaskservicejava" class="md-nav__link">
+    <span class="md-ellipsis">
+      service/TaskService.java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taskjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task.java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taskrepositoryjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      TaskRepository.java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#urplansapplicationjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      UrplansApplication.java
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -380,9 +491,25 @@
 
 
 
-  <h1>Architecture</h1>
-
-
+<h1 id="artitecture">Artitecture</h1>
+<p>Inside src/main/java/org/maifoss/urplans/, the project is organized into clear slices.</p>
+<h3 id="cliclirunnerjava">cli/CliRunner.java</h3>
+<p>The <code>cli/CliRunner.java</code> class is responsible for orchestrating command‑line interactions. It reads non‑option arguments and maps them to task operations such as insert, list, search, and delete. This class parses and validates each flag and its accompanying arguments, and it prints concise results to the command line for the user.</p>
+<h3 id="configquerydslconfigjava">config/QuerydslConfig.java</h3>
+<p>The <code>config/QuerydslConfig.java</code> class provides the configuration needed for Querydsl, including beans such as <code>JPAQueryFactory</code> that enable type‑safe dynamic queries. It wires the <code>EntityManager</code> into the Querydsl factories and centralizes the query infrastructure so that it can be reused across repositories and services.</p>
+<h3 id="controllertaskcontrollerjava">controller/TaskController.java</h3>
+<p>The <code>controller/TaskController.java</code> class exposes task operations through HTTP endpoints when the application is running in web mode. It defines REST mappings for create, list, search, and delete operations, maps incoming request payloads to domain objects, validates the inputs, delegates the calls to <code>TaskService</code>, and returns the results in JSON format.</p>
+<h3 id="repotaskrepositorycustomjava">repo/TaskRepositoryCustom.java</h3>
+<p>The <code>repo/TaskRepositoryCustom.java</code> interface defines custom query operations that are not covered by the standard Spring Data JPA method names. It serves as the contract for implementing search APIs with filters for title, date, and priority, and it is typically paired with <code>TaskRepositoryCustomImpl</code>, which uses Querydsl to build dynamic predicates.</p>
+<h3 id="servicetaskservicejava">service/TaskService.java</h3>
+<p>The <code>service/TaskService.java</code> class acts as the business façade, coordinating validation, repository access, and transactional behavior. It is responsible for creating new tasks by parsing the <code>"Title|Description|Date&gt;FOREVER|PRIORITY"</code> format, validating the date and priority, and persisting the entity. It can list all tasks or filter them by date, supports pagination for search results, and performs searches by combining optional filters such as title, date, and priority through the custom repository. It also handles deletions by removing a task based on its ID, ensuring the task exists before performing the operation.</p>
+<h3 id="taskjava">Task.java</h3>
+<p>The <code>Task.java</code> class is the JPA entity representing a task in the system. It defines the fields <code>id</code>, <code>title</code>, <code>description</code>, <code>dueDate</code>, and <code>priority</code>, and maps them to the database table used for task storage.</p>
+<h3 id="taskrepositoryjava">TaskRepository.java</h3>
+<p>The <code>TaskRepository.java</code> interface is a Spring Data JPA repository for <code>Task</code>. It provides the standard CRUD operations such as create, read, update, and delete, without requiring explicit SQL or JPQL code.</p>
+<h3 id="urplansapplicationjava">UrplansApplication.java</h3>
+<p>The <code>UrplansApplication.java</code> class is the Spring Boot application entry point. It contains the <code>main</code> method, which bootstraps the Spring context and launches the application in either CLI or web mode depending on configuration.</p>
+<p><a class="md-button md-button--primary md-button--raised" href="../">Back →</a></p>
 
 
 

@@ -15,7 +15,7 @@
         <link rel="next" href="../usage/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
@@ -70,6 +70,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#1-install-dependencies" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -296,6 +301,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -307,6 +325,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Clone the repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-build-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Build the project
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -384,7 +446,45 @@
 
   <h1>Setup</h1>
 
-
+<p>Follow these steps to setup <code>urplans</code>:</p>
+<h3 id="1-install-dependencies">1. Install dependencies</h3>
+<p>Make sure the following are installed on your system:</p>
+<ul>
+<li>Java Development Kit (JDK) 21 or later (includes the JRE)  </li>
+<li>Apache Maven 3.6+  </li>
+<li>Git (for cloning the repository)</li>
+</ul>
+<h3 id="2-clone-the-repository">2. Clone the repository</h3>
+<p>Use one of these commands to clone URPlans:</p>
+<ul>
+<li>via HTTPS:
+   <code>git clone https://github.com/MaiFOSS/urplans.git</code></li>
+<li>via SSH:
+   <code>git@github.com:MaiFOSS/urplans.git</code></li>
+<li>via Github CLI:
+   <code>gh repo clone MaiFOSS/urplans</code></li>
+</ul>
+<p>Alternatively, you can clone via your IDE’s Git integration.</p>
+<h3 id="3-build-the-project">3. Build the project</h3>
+<p>3.1. Move to the project's directory</p>
+<pre><code>cd urplans
+</code></pre>
+<p>3.2 Secondly, build the file:</p>
+<pre><code>mvn -DskipTests clean package
+</code></pre>
+<p>The output should be similar to this:</p>
+<pre><code>[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------&lt; org.maifoss.urplans:urplans &gt;---------------------
+...
+[INFO] BUILD SUCCESS
+...
+</code></pre>
+<p>The built JAR will be at <code>target/urplans-1.0-SNAPSHOT.jar</code></p>
+<p>You’re all set! Run URPlans with:</p>
+<pre><code>java -jar target/urplans-1.0-SNAPSHOT.jar
+</code></pre>
+<p><a class="md-button md-button--primary md-button--raised" href="../usage/">Usage →</a></p>
 
 
 

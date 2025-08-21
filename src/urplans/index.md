@@ -1,6 +1,6 @@
 # URPlans Overview
 
-# MADE BY MAIFOSS AND MAI BLOOM TECH STUDIOS
+# MADE BY MAIFOSS AND MAI BLOOM TECH STUDIO
 
 URPlans is a lightweight task‐planning core written in Java that is based on [Eisenhower Matrix](https://asana.com/resources/eisenhower-matrix) and is powered by [Spring Data JPA](https://spring.io/projects/spring-data-jpa), [Hibernate](https://hibernate.org/), and [Project Lombok](https://projectlombok.org/). You can run it as a standalone CLI tool to insert, list, show, delete, and search tasks backed by an H2 file‐based database.
 
