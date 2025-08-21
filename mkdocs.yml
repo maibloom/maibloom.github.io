@@ -1,6 +1,4 @@
 site_name: Mai Bloom Docs
-theme:
-  name: material
 
 docs_dir: src
 site_dir: docs
@@ -12,3 +10,26 @@ nav:
       - Setup: urplans/setup.md
       - Usage: urplans/usage.md
       - Architecture: urplans/architecture.md
+
+theme:
+  name: material
+  logo: assets/images/logo.webp
+  favicon: assets/images/favicon.png
+  palette:
+    scheme: slate
+    primary: "#3c0463"
+    accent: "#fb5b14"
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.sections
+    - search.highlight
+    - toc.integrate
+
+extra_css:
+  - assets/css/overrides.css
+
+markdown_extensions:
+  - attr_list

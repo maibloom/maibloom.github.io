@@ -2,244 +2,156 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mai Bloom - Welcome</title>
-  <style>
-    /* Global Styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212; /* Dark background */
-      color: #f4f4f4; /* Light text for contrast */
-      line-height: 1.6;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    
-    /* Toolbar Styles */
-    .toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #001f3f;  /* Deep blue */
-      padding: 15px 30px;
-    }
-    .toolbar .brand {
-      display: flex;
-      align-items: center;
-    }
-    .toolbar .brand img {
-      height: 40px;
-      width: auto;
-      margin-right: 10px;
-    }
-    .toolbar .brand span {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-    }
-    .toolbar-button {
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 4px;
-      background-color: #ff851b; /* Orange */
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .toolbar-button:hover {
-      background-color: #e67e22;
-      color: #fff;
-    }
-    
-    /* Main Content Styles */
-    .main-content {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    .app-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      background-color: #1e1e1e; /* Dark card background */
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      margin-bottom: 30px;
-      overflow: hidden;
-    }
-    /* Reverse layout for alternating sections */
-    .app-section:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-    .logo-container {
-      flex: 1 1 300px;
-      background-color: #2c2c2c; /* A slightly lighter dark tone */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .logo-container img {
-      max-width: 100%;
-      height: auto;
-    }
-    .content-container {
-      flex: 2 1 500px;
-      padding: 20px 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .content-container h3 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-    .content-container p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      color: #ddd;
-    }
-    .content-container button {
-      align-self: flex-start;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 4px;
-      background-color: #ff851b;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .content-container button:hover {
-      background-color: #e67e22;
-      color: #fff;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .app-section {
-        flex-direction: column;
-      }
-      .app-section:nth-child(even) {
-        flex-direction: column;
-      }
-      .toolbar {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .logo-container, .content-container {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mai Bloom – Welcome</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Toolbar with Single GitHub Button -->
+  <!-- Toolbar -->
   <header class="toolbar">
     <div class="brand">
-      <img src="logo.png" alt="Logo" />
+      <img src="src/assets/images/logo.webp" alt="Mai Bloom Logo" />
       <span>Mai Bloom Tech Studio</span>
     </div>
-    <button class="toolbar-button" onclick="window.location.href='https://github.com/maibloom'">
-      GitHub
-    </button>
+    <div class="toolbar-buttons">
+      <button class="toolbar-button" onclick="location.href='https://github.com/maibloom'">
+        GitHub
+      </button>
+      <button class="toolbar-button" onclick="location.href='https://maibloom.github.io/docs'">
+        Docs
+      </button>
+    </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <!-- Application Section 1 -->
-    <section class="app-section" id="apps">
+  <!-- HERO SECTION -->
+  <section class="hero fade-in"
+           style="background-image: url('src/assets/images/hero-bg.webp')">
+    <div class="hero-content">
+      <h1>Ideas in Bloom</h1>
+      <p>Crafting technology that grows with your ambitions.</p>
+      <button onclick="document.getElementById('products')
+                          .scrollIntoView({behavior: 'smooth'})">
+        Explore Products
+      </button>
+    </div>
+    <div class="flower-container">
+      <img src="src/assets/images/logo.webp" alt="Glowing MaiBloom Flower" />
+    </div>
+  </section>
+
+  <!-- SIMPLE PRODUCT SHOWCASE -->
+  <main id="products" class="main-content">
+
+    <!-- App 1 -->
+    <section class="app-section fade-in">
       <div class="logo-container">
-        <img src="app1-logo.png" alt="App 1 Logo" />
+        <img src="src/assets/images/app1-logo.webp" alt="Mai Bloom OS Logo" />
       </div>
       <div class="content-container">
         <h3>Mai Bloom Operating System</h3>
         <p>
-          Mai Bloom OS is a newly launched, Arch Linux-based distribution that seamlessly integrates the innovative technologies developed by Mai Bloom Tech Studio, delivering an unparalleled and user-friendly computing experience designed to simplify everyday tasks.
+          Arch Linux–based distribution seamlessly integrating Mai Bloom technologies for a streamlined, powerful desktop experience.
         </p>
-        <button onclick="window.location.href='https://github.com/maibloom/iso'">Learn More</button>
+        <button onclick="location.href='https://github.com/maibloom/iso'">
+          Learn More
+        </button>
       </div>
     </section>
-    
-    <!-- Application Section 2 -->
-    <section class="app-section">
+
+    <!-- App 2 -->
+    <section class="app-section fade-in">
       <div class="logo-container">
-        <img src="app2-logo.png" alt="App 2 Logo" />
+        <img src="src/assets/images/app2-logo.webp" alt="Mai Bloom AI-core Logo" />
       </div>
       <div class="content-container">
         <h3>Mai Bloom AI-core</h3>
         <p>
-          Mai Bloom AI-core is a sophisticated artificial intelligence engine built upon advanced AI modules provided by Deepset and HuggingFace, and it is further enriched by DuckDuckGo’s comprehensive knowledge base. This innovative integration offers intelligent and tailored solutions designed to address the ever-evolving challenges in modern technology.
+          Advanced AI engine combining Deepset, HuggingFace, and DuckDuckGo’s knowledge base into one intuitive toolkit.
         </p>
-        <button onclick="window.location.href='https://github.com/maibloom/maibloom-aicore'">Learn More</button>
+        <button onclick="location.href='https://github.com/maibloom/maibloom-aicore'">
+          Learn More
+        </button>
       </div>
     </section>
-    
-    <!-- Application Section 3 -->
-    <section class="app-section">
+
+    <!-- App 3 -->
+    <section class="app-section fade-in">
       <div class="logo-container">
-        <img src="app3-logo.png" alt="App 3 Logo" />
+        <img src="src/assets/images/app3-logo.webp" alt="OmniPkg Logo" />
       </div>
       <div class="content-container">
         <h3>OmniPkg</h3>
         <p>
-          OmniPkg redefines package management by offering an innovative approach that includes a flexible installer, live application support, automated configurations, and installation procedures that adhere to the highest best practices—all accomplished with the simplicity of two elegant bash scripts.
+          Innovative package manager with automation, live app support, and best-practice installs—all in two sleek scripts.
         </p>
-        <button onclick="window.location.href='https://github.com/maibloom/omnipkg-app'">Learn More</button>
+        <button onclick="location.href='https://github.com/maibloom/omnipkg-app'">
+          Learn More
+        </button>
       </div>
     </section>
-    
-    <!-- Application Section 4 -->
-    <section class="app-section">
+
+    <!-- App 4 -->
+    <section class="app-section fade-in">
       <div class="logo-container">
-        <img src="app4-logo.png" alt="App 4 Logo" />
+        <img src="src/assets/images/app4-logo.webp" alt="PyPipPark Logo" />
       </div>
       <div class="content-container">
         <h3>PyPipPark</h3>
         <p>
-          PyPipPark functions as an organized haven for Python pip dependencies, efficiently gathering and managing an extensive range of Python libraries in a dedicated location, which provides developers with a streamlined and permanently accessible solution to optimize their workflow.
+          Organized hub for Python pip dependencies—collect, manage, and access your libraries with ease.
         </p>
-        <button onclick="window.location.href='https://github.com/maibloom/pypippark'">Learn More</button>
+        <button onclick="location.href='https://github.com/maibloom/pypippark'">
+          Learn More
+        </button>
       </div>
     </section>
-    
-    <!-- Application Section 5 -->
-    <section class="app-section">
+
+    <!-- App 5 -->
+    <section class="app-section fade-in">
       <div class="logo-container">
-        <img src="app5-logo.png" alt="App 5 Logo" />
+        <img src="src/assets/images/app5-logo.webp" alt="Tux Talk Logo" />
       </div>
       <div class="content-container">
         <h3>Tux Talk</h3>
         <p>
-          Tux Talk brings state-of-the-art artificial intelligence directly to your fingertips by integrating DuckDuckGo’s innovative duck AI with Microsoft’s renowned Copilot technology, ensuring that intelligent assistance is always readily available wherever you may be.
+          DuckDuckGo’s AI meets Microsoft Copilot—on-demand assistance wherever you code or chat.
         </p>
-        <button onclick="window.location.href='https://github.com/maibloom/TuxTalk'">Learn More</button>
+        <button onclick="location.href='https://github.com/maibloom/TuxTalk'">
+          Learn More
+        </button>
       </div>
     </section>
-    
-    <!-- Application Section 6 -->
-    <section class="app-section">
+
+    <!-- App 6 -->
+    <section class="app-section fade-in">
       <div class="logo-container">
-        <img src="app6-logo.png" alt="App 6 Logo" />
+        <img src="src/assets/images/app6-logo.webp" alt="Google Bro Office Logo" />
       </div>
       <div class="content-container">
         <h3>Google Bro Office</h3>
         <p>
-          Google Bro Office is the result of a strategic collaboration with MaiFOSS, offering seamless access to Google’s suite of driver applications and empowering users with the cutting-edge tools required for modern office productivity and digital management.
+          Seamless access to Google productivity tools, built in collaboration with MaiFOSS for an open, powerful workflow.
         </p>
-        <button onclick="window.location.href='https://github.com/MaiFOSS/google-bro-office'">Learn More</button>
+        <button onclick="location.href='https://github.com/MaiFOSS/google-bro-office'">
+          Learn More
+        </button>
       </div>
     </section>
+
   </main>
+
+  <!-- Scroll Animations -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appear = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    faders.forEach(f => appear.observe(f));
+  </script>
 </body>
 </html>
